@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+body, html {
+    overflow: hidden;
+}
+#game-board {
+    width: 45vw;
+    height: 70vh;
+    background-size: 20px 20px; /* 格線的大小 */
+    background-image: 
+        linear-gradient(to right, #000 1px, transparent 1px),
+        linear-gradient(to bottom, #000 1px, transparent 1px);
+    background-color: #ddd;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #333;
+    z-index: 1;
+    transition: background-color 2s ease;
+}
+
+.food, .snake {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+}
+
+.food {
+    background-color: red;
+}
+
+.snake {
+    background-color: green;
+}
+
+#score-board {
+    margin-top: 20px;
+    font-size: 20px;
+}
+#start-btn {
+    background-color: #4CAF50; /* 綠色背景 */
+    color: white; /* 白色字體 */
+    padding: 10px 20px; /* 內部填充 */
+    border: none; /* 移除邊框 */
+    border-radius: 5px; /* 圓角 */
+    font-size: 16px; /* 字體大小 */
+    cursor: pointer; /* 指針樣式 */
+    margin: 10px 0;
+    transition: background-color 0.3s; /* 漸變效果 */
+}
+
+#start-btn:hover {
+    background-color: #45a049; /* 深綠色背景 */
+}
+#score-board {
+    font-family: 'Arial', sans-serif; /* 使用Arial字體，如果不可用則使用無襯線字體 */
+    font-size: 20px; /* 字體大小 */
+    color: #333; /* 深灰色字體 */
+    font-weight: bold; /* 粗體 */
+}
+@media (max-width: 600px) {
+    #game-board {
+        width: 90%;
+        height: 90vw;
+    }
+}
+.obstacle {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background-color: #fff; /* 你可以選擇自己喜歡的顏色 */
+    transition: background-color 2s;
+}
+.obstacle.black {
+    background-color: black; /* 2秒後變為黑色 */
+}
+.poison-food {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background-color: #006400;
+}
+@keyframes movingGrid {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100px 100px;
+    }
+}
+#game-board.night-mode {
+    background-color: #000; /* 黑色背景表示夜晚 */
+    transition: background-color 2s ease; /* 淡入效果 */
+}
+.obstacle.temp-white {
+    background-color: white;
+    transition: background-color 2s; /* 顏色變化過渡效果 */
+}
+.obstacle.flicker {
+    animation: flickerAnimation 3s infinite;
+}
+
+@keyframes flickerAnimation {
+    0%, 100% { background-color: black; }
+    50% { background-color: white; }
+}
