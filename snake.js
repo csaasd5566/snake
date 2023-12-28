@@ -284,4 +284,19 @@ document.addEventListener('keydown', (event) => {
         startGame();
     }
 });
+document.getElementById('up-btn').addEventListener('click', () => setDirection('up'));
+document.getElementById('down-btn').addEventListener('click', () => setDirection('down'));
+document.getElementById('left-btn').addEventListener('click', () => setDirection('left'));
+document.getElementById('right-btn').addEventListener('click', () => setDirection('right'));
+function setDirection(newDirection) {
+    if (newDirection === 'up' && direction !== 'down') {
+        direction = 'up';
+    } else if (newDirection === 'down' && direction !== 'up') {
+        direction = 'down';
+    } else if (newDirection === 'left' && direction !== 'right') {
+        direction = 'left';
+    } else if (newDirection === 'right' && direction !== 'left') {
+        direction = 'right';
+    }
+}
 initializeGame();

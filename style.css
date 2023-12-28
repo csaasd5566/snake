@@ -105,7 +105,44 @@ body, html {
 .obstacle.flicker {
     animation: flickerAnimation 3s infinite;
 }
+#controls {
+    display: none;
+}
 
+/* 控制按钮的行容器样式 */
+#controls .row {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+/* 当屏幕宽度小于或等于600px时，显示控制按钮 */
+@media screen and (max-width: 600px) {
+    #controls {
+        display: block;
+        text-align: center;
+    }
+
+    #controls button {
+        background-color: #4CAF50; /* 绿色背景 */
+        color: white; /* 白色字体 */
+        padding: 10px 20px; /* 内部填充 */
+        margin: 0 5px; /* 按钮间隔 */
+        border: none; /* 移除边框 */
+        border-radius: 5px; /* 圆角 */
+        font-size: 16px; /* 字体大小 */
+        cursor: pointer; /* 指针样式 */
+    }
+
+    #controls button:active {
+        background-color: #45a049; /* 点击时的深绿色背景 */
+    }
+
+    /* 单独为上按钮设置样式，它会占据整个行的空间 */
+    #up-btn {
+        margin: 0 auto; /* 水平居中 */
+    }
+}
 @keyframes flickerAnimation {
     0%, 100% { background-color: black; }
     50% { background-color: white; }
